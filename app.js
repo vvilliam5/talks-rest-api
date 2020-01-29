@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const talksRoute = require('./routes/talks');
 
 const app = express();
-const port = process.eventNames.PORT || 3000;
 mongoose.connect("mongodb://heroku_9kl32k7z:3k41i3e9en5in38erd813eu4o8@ds031847.mlab.com:31847/heroku_9kl32k7z", { useNewUrlParser: true, useUnifiedTopology: true });
 let db = mongoose.connection;
 db.on('error', (err) => {
@@ -43,7 +42,7 @@ app.use((err, req, res, next) => {
         }
     })
 })
-
+let port = process.eventNames.PORT || 3000;
 app.listen(port, () => {
     console.log('Express Server is listening on ' + port)
 });
