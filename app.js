@@ -42,7 +42,7 @@ app.use((err, req, res, next) => {
         }
     })
 })
-let port = process.eventNames.PORT || 3000;
+let port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log('Express Server is listening on ' + port)
 });
