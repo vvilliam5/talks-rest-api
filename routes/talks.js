@@ -37,6 +37,13 @@ router.post('/', (req, res, next) => {
 router.get('/:id', (req, res) => {
     res.json(req.talk);
 })
+//route to delete talk
+router.delete('/:id', (req, res, next) => {
+    req.talk.remove((err) => {
+        if (err) return next(err)
+        return next();
+    })
+})
 //route to add new attendee to talk
 router.post('/:id/attendee', (req, res) => {
     let attendee = new Attendees(req.body);
