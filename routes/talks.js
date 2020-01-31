@@ -53,5 +53,12 @@ router.get('/:id/attendee', (req, res) => {
         res.json(attendees);
     })
 })
+//route to get attendee by id
+router.get('/:id/attendee/:aID', (req, res) => {
+    Attendees.findById(req.params.aID, (err, attendee) => {
+        if (err) return next(err);
+        res.json(attendee);
+    })
+})
 
 module.exports = router;

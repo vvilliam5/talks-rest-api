@@ -4,6 +4,7 @@ const jsonParser = require('body-parser').json;
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const talksRoute = require('./routes/talks');
+const attendeesRoute = require('./routes/attendees');
 
 const app = express();
 mongoose.connect("mongodb://heroku_9kl32k7z:3k41i3e9en5in38erd813eu4o8@ds031847.mlab.com:31847/heroku_9kl32k7z", { useNewUrlParser: true, useUnifiedTopology: true });
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
     next();
 })
 app.use('/talks', talksRoute);
+app.use('/attendees', attendeesRoute);
 
 app.use((req, res, next) => {
     let err = new Error("Not found");
